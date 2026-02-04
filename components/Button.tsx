@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-    GestureResponderEvent,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
+  GestureResponderEvent,
+  Pressable,
+  StyleSheet,
+  Text
 } from 'react-native';
 
 interface ButtonProps {
@@ -18,12 +18,12 @@ const Button: React.FC<ButtonProps> = ({
   color
 }) => {
   return (
-    <TouchableOpacity
+    <Pressable
       style={[styles.button, { backgroundColor: color}]}
       onPress={onPress}
     >
       <Text style={styles.text}>{title}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     marginVertical: 10,
+    width: 300,
   },
   text: {
     color: '#fff',

@@ -1,7 +1,13 @@
-import { Image, Text, View } from "react-native";
-import Button from "./components/Button";
-import Link from "./components/Link";
+import Button from "@/components/Button";
+import Link from "@/components/Link";
+
+import { useRouter } from 'expo-router';
+import { Image, StyleSheet, Text, View } from "react-native";
+
 export default function Index() {
+
+  const router = useRouter();
+
 
   return (
     <View
@@ -12,13 +18,13 @@ export default function Index() {
         backgroundColor: "white"
       }}
     >
-      <Image source={require('./splash-icon.png')}/>
-      <Text>You'll Find</Text>
-      <Text>All you need</Text>
-      <Text>Here!</Text>
+      <Image source={require('@/assets/images/splash-icon.png')}/>
+      <Text style={[styles.title]}>You'll Find</Text>
+      <Text style={[styles.title, {color: "orange", textDecorationLine: "underline"} ]}>All you need</Text>
+      <Text style={[styles.title]}>Here!</Text>
       <Button
         title="Sign up"
-        onPress={() => console.log("FGGGGG")}
+        onPress={() => router.navigate("/signup")}
         color="#4F63AC"
       />
       <Link
@@ -29,3 +35,10 @@ export default function Index() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 30,
+    fontWeight: "bold"
+  },
+});
